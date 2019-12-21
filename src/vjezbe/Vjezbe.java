@@ -1,12 +1,18 @@
 package vjezbe;
-
+import java.io.*;
+import java.util.logging.Level;
 public class Vjezbe {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException, ClassNotFoundException
+    {
 
-       Car car = new Car("Audi", "A3", 1);
+        FileInputStream fis = new FileInputStream("MyCar");
+        ObjectInputStream objIn = new ObjectInputStream(fis);
+        Car c = (Car)objIn.readObject();
+        System.out.println(c);
         
-     car.printDetails();
+   
+    
         
         
     }
